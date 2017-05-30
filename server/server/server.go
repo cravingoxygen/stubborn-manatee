@@ -17,9 +17,12 @@ See the License for the specific language governing permissions and limitations 
 package main
 
 import (
+	_ "fmt"
 	"io"
 	"log"
 	"net/http"
+
+	_ "github.com/gorilla/mux"
 )
 
 //Every handler should be wrapped by this error handler
@@ -33,12 +36,7 @@ func errorHandler(f func(http.ResponseWriter, *http.Request) error) http.Handler
 	}
 }
 
-func helloHandler(w http.ResponseWriter, r *http.Request) error {
-	io.WriteString(w, "Hello world")
-	return nil
-}
-
 func main() {
-	http.HandleFunc("/", errorHandler(helloHandler))
+	http.Handle("/", http.FileServer(http.Dir("../../content/")))
 	http.ListenAndServe(":8080", nil)
 }
