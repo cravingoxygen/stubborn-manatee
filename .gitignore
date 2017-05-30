@@ -12,3 +12,12 @@
 
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
+
+#Images, fonts, etc
+*.png
+*.jpg
+*.otf
+*.eot
+*.svg
+*.ttf
+*.woff
