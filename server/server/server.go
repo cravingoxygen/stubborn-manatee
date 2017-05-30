@@ -18,7 +18,6 @@ package main
 
 import (
 	_ "fmt"
-	"io"
 	"log"
 	"net/http"
 
