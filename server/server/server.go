@@ -17,11 +17,14 @@ See the License for the specific language governing permissions and limitations 
 package main
 
 import (
+	"flag"
+	"fmt"
 	_ "fmt"
 	"log"
 	"net/http"
 
-	_ "github.com/gorilla/mux"
+	"github.com/gorilla/mux"
+	ctrls "github.com/stubborn-manatee/server/controllers"
 )
 
 //Every handler should be wrapped by this error handler
@@ -36,6 +39,16 @@ func errorHandler(f func(http.ResponseWriter, *http.Request) error) http.Handler
 }
 
 func main() {
-	http.Handle("/", http.FileServer(http.Dir("../../content/")))
-	http.ListenAndServe(":8080", nil)
+	contentPath := flag.String("c", "../../content/", "Path to the content directory")
+	serverPort := flag.Int("p", 8080, "Port on which server will be hosted")
+	flag.Parse()
+	r := mux.NewRouter()
+	postController := ctrls.NewPostController()
+	r.HandleFunc("/post", postController.GetPost).Methods("GET")
+	r.HandleFunc("/post", postController.CreatePost).Methods("POST")
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir(*contentPath)))
+
+	http.Handle("/", r)
+	fmt.Println("Hosting stubborn-manatee on port", fmt.Sprintf("%v", *serverPort))
+	http.ListenAndServe(fmt.Sprintf(":%v", *serverPort), nil)
 }
