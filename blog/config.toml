@@ -1,4 +1,4 @@
-title = "My cool new Blog"
+title = "stubbornManatee"
 baseURL = "https://stubborn-manatee.co.za"
 theme = "bilberry-hugo-theme"
 
@@ -56,14 +56,14 @@ disqusShortname = "bilberry-hugo-theme"
 
   # social media profile urls for the footer links
   facebook   = ""
-  twitter    = "https://twitter.com/TheRealLednerb"
+  twitter    = ""
   googleplus = ""
   pinterest  = ""
   instagram  = ""
   tumblr     = ""
   youtube    = ""
   vimeo      = ""
-  github     = "https://github.com/Lednerb"
+  github     = "https://github.com/cravingoxygen"
 
 # don't change anything here
 [taxonomies]
