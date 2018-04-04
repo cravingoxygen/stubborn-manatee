@@ -38,6 +38,10 @@ func errorHandler(f func(http.ResponseWriter, *http.Request) error) http.Handler
 	}
 }
 
+func redirectToHttps(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://"+r.URL.Host+r.RequestURI, http.StatusMovedPermanently)
+}
+
 func main() {
 	contentPath := flag.String("c", "../../content/", "Path to the content directory")
 	serverPort := flag.Int("p", 8080, "Port on which server will be hosted")
@@ -48,7 +52,12 @@ func main() {
 	r.HandleFunc("/post", postController.CreatePost).Methods("POST")
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir(*contentPath)))
 
-	http.Handle("/", r)
+	http.HandleFunc( "/", redirectToHttps)
+
+	go http.ListenAndServe(":80", nil)
 	fmt.Println("Hosting stubborn-manatee on port", fmt.Sprintf("%v", *serverPort))
-	http.ListenAndServe(fmt.Sprintf(":%v", *serverPort), nil)
+	err := http.ListenAndServeTLS(fmt.Sprintf(":%v", *serverPort), "/etc/letsencrypt/live/stubborn-manatee.co.za/cert.pem", "/etc/letsencrypt/live/stubborn-manatee.co.za/privkey.pem", r)
+	if err != nil {
+		panic(err);
+	}
 }
