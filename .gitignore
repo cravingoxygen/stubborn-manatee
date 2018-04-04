@@ -13,11 +13,7 @@
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
 
-#Images, fonts, etc
-*.png
-*.jpg
-*.otf
-*.eot
-*.svg
-*.ttf
-*.woff
+#Assets (videos, images, etc)
+data
+#The static version of the site, as built by Hugo
+public
