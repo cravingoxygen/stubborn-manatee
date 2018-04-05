@@ -22,6 +22,7 @@ import (
 	_ "fmt"
 	"log"
 	"net/http"
+	"net/url"
 
 	"github.com/gorilla/mux"
 	ctrls "github.com/stubborn-manatee/server/controllers"
@@ -39,7 +40,8 @@ func errorHandler(f func(http.ResponseWriter, *http.Request) error) http.Handler
 }
 
 func redirectToHttps(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "https://"+r.URL.Host+r.RequestURI, http.StatusMovedPermanently)
+	targetUrl := url.URL{Scheme: "https", Host: r.Host, Path: r.URL.Path, RawQuery: r.URL.RawQuery}
+	http.Redirect(w, r, targetUrl.String(), http.StatusMovedPermanently)
 }
 
 func main() {
@@ -52,12 +54,12 @@ func main() {
 	r.HandleFunc("/post", postController.CreatePost).Methods("POST")
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir(*contentPath)))
 
-	http.HandleFunc( "/", redirectToHttps)
+	http.HandleFunc("/", redirectToHttps)
 
 	go http.ListenAndServe(":80", nil)
 	fmt.Println("Hosting stubborn-manatee on port", fmt.Sprintf("%v", *serverPort))
 	err := http.ListenAndServeTLS(fmt.Sprintf(":%v", *serverPort), "/etc/letsencrypt/live/stubborn-manatee.co.za/cert.pem", "/etc/letsencrypt/live/stubborn-manatee.co.za/privkey.pem", r)
 	if err != nil {
-		panic(err);
+		panic(err)
 	}
 }
