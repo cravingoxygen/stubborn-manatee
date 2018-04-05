@@ -7,6 +7,7 @@ categories: []
 tags: ['Patreon', 'Survival', 'Income', 'Support', 'Say Thanks!']
 author: "Lednerb"
 noSummary: true
+draft: true
 ---
 Hey there!
 

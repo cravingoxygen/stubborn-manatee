@@ -12,6 +12,7 @@ gallery: [
 categories: ['Travelling', 'Holidays']
 tags: ['Scotland', 'Glennfinnan Viaduct', 'Eilean Donan Castle']
 author: "Lednerb"
+draft: true
 ---
 In June 2017 I've visited Scotland with my best friend for two weeks.
 We drove a lot through the beautiful countryside and saw a lot of different animals: cattle, deer, birds, dolphins, and sheep. Sheep everywhere!

@@ -5,6 +5,7 @@ date: 2017-11-01T16:12:47+01:00
 featuredImage: ""
 categories: ['Music']
 tags: ['Kilez More', 'Truth Rap']
+draft: true
 
 # Set your audio url for
 spotify:    "spotify:track:0qDZPJGUALZC7vSahlekhu"
