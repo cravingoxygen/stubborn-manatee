@@ -15,7 +15,8 @@ disqusShortname = "bilberry-hugo-theme"
 
 [params]
   # Favicon for the browser's favorites and tabs
-  favicon = "happy_manatee_32x32.ico" # set a favicon icon
+  favicon = "/happy_manatee_32x32.ico" 
+  favicon_large = "/happy_manatee_96x96.ico" 
 
   # Custom CSS / JS modules that will be imported by the template.
   # Files are relative to the static/ directory or a URL.
@@ -25,31 +26,31 @@ disqusShortname = "bilberry-hugo-theme"
   js_modules = []
 
   # Description and meta data for the search engines
-  author = "Lednerb"
-  description = "Bilberry Premium Theme for Hugo."
-  keywords = "blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts"
+  author = "Elre Oldewage"
+  description = "Blog about machine learning. Also, plants."
+  keywords = "blog,personal,machine learning,neural network,plant,succulent,orchid,gardening,hobby"
 
   # How many articles should be displayed at once?
   paginate = 7
 
   # Enable / Disable MathJax
-  enable_mathjax    = false
+  enable_mathjax    = true
 
   # Enable / Disable algolia search
-  algolia_search    = true
+  algolia_search    = false
   algolia_appId     = "Y2C4RWMPXW"
   algolia_apiKey    = "50ea7f8c41c0ad233926e0be2b769ed1"
   algolia_indexName = "default-content"
 
   # Header configuration
     # your subtitle if you want to use any
-    subtitle = "Unsubstantiated optimism"
+    subtitle = "baseless optimism"
 
     # if you want to use gravatar for the header image
     gravatarEMail = ""
 
     # set an path to the image file you want to use | overwrites gravatar
-    customImage = ""
+    customImage = "/happy_manatee_144x144.png"
 
     # always display the top navigation (with pages and search) on non-mobile screens
     permanentTopNav = false
