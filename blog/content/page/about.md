@@ -4,7 +4,7 @@ date: 2017-11-01T13:18:45+01:00
 author: "Elre"
 ---
 
-Most of the topics that I plan to explore are vast and my background in them is limited. Fortunately, being an expert is not a requirement for enthusiasm otherwise nobody would be allowed to get excited about anything (and likely, nobody would ever manage to become an expert). Hence, the theme of this blog is one of unsubstantiated, stubborn enthusiasm for anything that I would like to be enthusiastic about. 
+Fortunately, being an expert is not a requirement for enthusiasm otherwise nobody would be allowed to get excited about anything (and likely, nobody would ever manage to become an expert). Hence, the theme of this blog is one of unsubstantiated, stubborn enthusiasm for anything sufficiently interesting.
 
 *Note that although my enthusiasm may be baseless in the face of these non-trivial topics, any conjectures, reasoning or hypotheses stated here should be theoretically sound and solidly substantiated. And if the reasoning isn't sound enough for your taste, leave a comment. Let's debate.*
 
